@@ -5,16 +5,16 @@
 
 declare(strict_types=1);
 
-namespace NobiDev\LibraryStarter\Contracts;
+namespace NobiDev\AppUpdater\Contracts;
 
 use Illuminate\Contracts\Container\Container;
 
 /**
- * @package NobiDev\LibraryStarter\Contracts
+ * @package NobiDev\AppUpdater\Contracts
  */
-interface LibraryStarter
+interface AppUpdater
 {
     public function __construct(Container $app);
 
-    public function load(): LibraryStarter;
+    public function load(): AppUpdater;
 }

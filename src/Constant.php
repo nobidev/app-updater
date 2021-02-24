@@ -5,15 +5,15 @@
 
 declare(strict_types=1);
 
-namespace NobiDev\LibraryStarter;
+namespace NobiDev\AppUpdater;
 
 /**
- * @package NobiDev\LibraryStarter
+ * @package NobiDev\AppUpdater
  */
 class Constant
 {
     public static function getName(): string
     {
-        return 'LibraryStarter';
+        return 'AppUpdater';
     }
 }

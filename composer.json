@@ -1,6 +1,6 @@
 {
-  "name": "nobidev/library-starter",
-  "description": "Library Starter",
+  "name": "nobidev/app-updater",
+  "description": "Application Updater",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -21,17 +21,17 @@
   },
   "autoload": {
     "psr-4": {
-      "NobiDev\\LibraryStarter\\": "src/",
-      "NobiDev\\LibraryStarter\\Tests\\": "tests/"
+      "NobiDev\\AppUpdater\\": "src/",
+      "NobiDev\\AppUpdater\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "NobiDev\\LibraryStarter\\ServiceProvider"
+        "NobiDev\\AppUpdater\\ServiceProvider"
       ],
       "aliases": {
-        "LibraryStarter": "NobiDev\\LibraryStarter\\Facade"
+        "AppUpdater": "NobiDev\\AppUpdater\\Facade"
       }
     }
   }
