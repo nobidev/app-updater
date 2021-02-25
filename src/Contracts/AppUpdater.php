@@ -22,6 +22,14 @@ interface AppUpdater
 
     public function isNewVersionAvailable(): bool;
 
+    public function getVersionFile(): string;
+
+    public function hasVersionFile(): bool;
+
+    public function createVersionFile(string $version): void;
+
+    public function deleteVersionFile(): void;
+
     public function getVersionAvailable(): string;
 
     public function fetch(string $version): AppUpdaterRelease;
