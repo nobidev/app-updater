@@ -9,6 +9,7 @@ namespace NobiDev\AppUpdater\Commands;
 
 use AppUpdater;
 use Illuminate\Console\Command;
+use NobiDev\AppUpdater\Constant;
 
 /**
  * @package NobiDev\AppUpdater\Commands
@@ -18,7 +19,7 @@ class CheckUpdate extends Command
     public function __construct()
     {
         $this->signature = 'updater:check-update';
-        $this->description = 'Check to see if there are any updates available';
+        $this->description = __(Constant::getName() . '::check_update.description');
         parent::__construct();
     }
 
@@ -27,11 +28,11 @@ class CheckUpdate extends Command
         if (AppUpdater::isNewVersionAvailable()) {
             $version = AppUpdater::getVersionAvailable();
 
-            echo __(sprintf('New update available is version %s', $version)) . PHP_EOL;
+            echo __(Constant::getName() . '::check_update.succeed', ['version' => $version]) . PHP_EOL;
             return 0;
         }
 
-        echo __('You are using the latest version !') . PHP_EOL;
+        echo __(Constant::getName() . '::check_update.failed') . PHP_EOL;
         return 1;
     }
 }

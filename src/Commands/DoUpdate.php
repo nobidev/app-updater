@@ -9,6 +9,7 @@ namespace NobiDev\AppUpdater\Commands;
 
 use AppUpdater;
 use Illuminate\Console\Command;
+use NobiDev\AppUpdater\Constant;
 
 /**
  * @package NobiDev\AppUpdater\Commands
@@ -18,7 +19,7 @@ class DoUpdate extends Command
     public function __construct()
     {
         $this->signature = 'updater:do-update';
-        $this->description = 'Update to the new version';
+        $this->description = __(Constant::getName() . '::do_update.description');
         parent::__construct();
     }
 
@@ -28,11 +29,11 @@ class DoUpdate extends Command
             $version = AppUpdater::getVersionAvailable();
             AppUpdater::fetch($version)->update();
 
-            echo __(sprintf('Successfully updated to version %s', $version)) . PHP_EOL;
+            echo __(Constant::getName() . '::do_update.succeed', ['version' => $version]) . PHP_EOL;
             return 0;
         }
 
-        echo __('There is nothing to update !') . PHP_EOL;
+        echo __(Constant::getName() . '::do_update.failed') . PHP_EOL;
         return 1;
     }
 }
