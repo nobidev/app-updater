@@ -17,4 +17,12 @@ interface AppUpdater
     public function __construct(Container $app);
 
     public function load(): AppUpdater;
+
+    public function getVersion(): string;
+
+    public function isNewVersionAvailable(): bool;
+
+    public function getVersionAvailable(): string;
+
+    public function fetch(string $version): AppUpdaterRelease;
 }

@@ -41,4 +41,24 @@ class AppUpdater implements AppUpdaterContract
 
         return $this;
     }
+
+    public function getVersion(): string
+    {
+        return config('app.version');
+    }
+
+    public function isNewVersionAvailable(): bool
+    {
+        return false;
+    }
+
+    public function getVersionAvailable(): string
+    {
+        return $this->getVersion();
+    }
+
+    public function fetch(string $version): AppUpdaterRelease
+    {
+        return new AppUpdaterRelease($this, $version);
+    }
 }
