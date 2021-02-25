@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace NobiDev\AppUpdater;
 
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Support\Facades\File;
 use NobiDev\AppUpdater\Contracts\AppUpdater as AppUpdaterContract;
 use NobiDev\AppUpdater\Exceptions\ApplicationInvalidException;
 
@@ -42,19 +43,47 @@ class AppUpdater implements AppUpdaterContract
         return $this;
     }
 
-    public function getVersion(): ?string
-    {
-        return config('app.version');
-    }
-
     public function isNewVersionAvailable(): bool
     {
         return false;
     }
 
+    public function getVersionFile(): string
+    {
+        return storage_path('update_available');
+    }
+
+    public function hasVersionFile(): bool
+    {
+        return File::exists($this->getVersionFile());
+    }
+
+    public function createVersionFile(string $version): void
+    {
+        File::put($this->getVersionFile(), $version);
+    }
+
+    public function deleteVersionFile(): void
+    {
+        File::delete($this->getVersionFile());
+    }
+
+    protected function findVersionLatest(string $version): string
+    {
+        return $version;
+    }
+
     public function getVersionAvailable(): string
     {
-        return $this->getVersion();
+        if (!$this->hasVersionFile()) {
+            $this->findVersionLatest($this->getVersion());
+        }
+        return File::get($this->getVersionFile());
+    }
+
+    public function getVersion(): ?string
+    {
+        return config('app.version');
     }
 
     public function fetch(string $version): AppUpdaterRelease

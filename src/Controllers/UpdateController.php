@@ -17,10 +17,10 @@ use Symfony\Component\HttpFoundation\Response as BaseResponse;
  */
 abstract class UpdateController extends Controller
 {
-    abstract protected function getData(Request $request): array;
-
     public function index(Request $request): BaseResponse
     {
         return Response::json($this->getData($request));
     }
+
+    abstract protected function getData(Request $request): array;
 }

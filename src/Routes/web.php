@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use NobiDev\AppUpdater\Constant;
 
 Route::group([
-    'prefix' => config(Constant::getName(). '.api.prefix'),
+    'prefix' => config(Constant::getName() . '.api.prefix'),
     'as' => Constant::getName() . '::',
     'namespace' => 'NobiDev\AppUpdater\Controllers',
     'middleware' => ['web', Constant::getName()]

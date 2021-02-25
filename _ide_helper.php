@@ -36,6 +36,26 @@ namespace NobiDev\AppUpdater {
             return self::$instance->isNewVersionAvailable();
         }
 
+        public static function getVersionFile(): string
+        {
+            return self::$instance->getVersionFile();
+        }
+
+        public static function hasVersionFile(): bool
+        {
+            return self::$instance->hasVersionFile();
+        }
+
+        public static function createVersionFile(string $version): void
+        {
+            self::$instance->createVersionFile($version);
+        }
+
+        public static function deleteVersionFile(): void
+        {
+            self::$instance->deleteVersionFile();
+        }
+
         public static function getVersionAvailable(): string
         {
             return self::$instance->getVersionAvailable();
