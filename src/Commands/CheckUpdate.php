@@ -17,9 +17,9 @@ class CheckUpdate extends Command
 {
     public function __construct()
     {
-        parent::__construct();
         $this->signature = 'updater:check-update';
         $this->description = 'Check to see if there are any updates available';
+        parent::__construct();
     }
 
     public function handle(): int

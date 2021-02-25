@@ -17,9 +17,9 @@ class DoUpdate extends Command
 {
     public function __construct()
     {
-        parent::__construct();
         $this->signature = 'updater:do-update';
         $this->description = 'Update to the new version';
+        parent::__construct();
     }
 
     public function handle(): int
