@@ -36,9 +36,29 @@ class AppUpdater implements AppUpdaterContract
     public function load(): AppUpdater
     {
         if ($this->application !== app()) {
-            throw new ApplicationInvalidException('AppInstaller must be installed on the main context of Laravel.');
+            throw new ApplicationInvalidException('AppUpdater must be installed on the main context of Laravel.');
         }
 
         return $this;
+    }
+
+    public function getVersion(): ?string
+    {
+        return config('app.version');
+    }
+
+    public function isNewVersionAvailable(): bool
+    {
+        return false;
+    }
+
+    public function getVersionAvailable(): string
+    {
+        return $this->getVersion();
+    }
+
+    public function fetch(string $version): AppUpdaterRelease
+    {
+        return new AppUpdaterRelease($this, $version);
     }
 }
