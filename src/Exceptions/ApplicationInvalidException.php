@@ -10,7 +10,7 @@ namespace NobiDev\AppUpdater\Exceptions;
 use Exception;
 
 /**
- * @package NobiDev\AppInstaller\Exceptions
+ * @package NobiDev\AppUpdater\Exceptions
  */
 class ApplicationInvalidException extends Exception
 {

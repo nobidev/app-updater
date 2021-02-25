@@ -18,7 +18,7 @@ interface AppUpdater
 
     public function load(): AppUpdater;
 
-    public function getVersion(): string;
+    public function getVersion(): ?string;
 
     public function isNewVersionAvailable(): bool;
 
